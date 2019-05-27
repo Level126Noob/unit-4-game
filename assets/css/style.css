@@ -1,0 +1,14 @@
+ body {
+     text-decoration-color: white;
+     background-image: url(../images/social-share-fb.jpg)
+ }
+ 
+ h1 {
+    padding-bottom: 20px;
+    font-size: 30px;
+    line-height: 49px;
+    border-bottom: 3px solid #dddddd;
+    background-color: black;
+    text-align: center;
+    color: gold;
+  }
