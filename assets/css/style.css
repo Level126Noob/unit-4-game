@@ -35,3 +35,12 @@
      width: 100px;
      padding-left: 20px;
  }
+
+ .arena {
+     display: block;
+     position: absolute;
+     width: 100%;
+     margin: 0 auto;
+     align-items: center;
+     text-align: center;
+ }
