@@ -2,7 +2,7 @@
      background-image: url(../images/social-share-fb.jpg)
  }
 
- h1 {
+ header {
      padding-bottom: 20px;
      font-size: 30px;
      line-height: 49px;
@@ -42,18 +42,22 @@
      width: 100%;
      height: 70%;
      margin: 0 auto;
-     align-items: center;
-     text-align: center;
+     align-items: left;
+     text-align: left;
      background-image: url(../images/Duel_Arena.png);
  }
 
  .btn-danger {
      position: relative;
      display: block;
-     top: 80%;
-     left: 45%;
      height: 7%;
      width: 10%;
      background-color: red;
      color: white;
  }
+
+ h1 {
+     font-size: 30px;
+     font-weight: bold;
+ }
+ 
