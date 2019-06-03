@@ -30,7 +30,7 @@
      margin: 10px, 10px, 10px, 10px;
      width: 100px;
      Height: 300px;
-     left: 5%;
+     left: 10%;
  }
  .DharokIMG {
     position: relative;
@@ -38,7 +38,7 @@
     margin: 10px, 10px, 10px, 10px;
     width: 100px;
     Height: 300px;
-    left: 10%;
+    left: 15%;
 }
 .GuthanIMG {
     position: relative;
@@ -46,7 +46,7 @@
     margin: 10px, 10px, 10px, 10px;
     width: 100px;
     Height: 300px;
-    left: 15%;
+    left: 20%;
 }
 .KarilIMG {
     position: relative;
@@ -54,7 +54,7 @@
     margin: 10px, 10px, 10px, 10px;
     width: 100px;
     Height: 300px;
-    left: 20%;
+    left: 25%;
 }
 .ToragIMG {
     position: relative;
@@ -62,7 +62,7 @@
     margin: 10px, 10px, 10px, 10px;
     width: 100px;
     Height: 300px;
-    left: 25%;
+    left: 30%;
 }
 .VeracIMG {
     position: relative;
@@ -70,7 +70,7 @@
     margin: 10px, 10px, 10px, 10px;
     width: 100px;
     Height: 300px;
-    left: 30%;
+    left: 35%;
 }
 
  .arena {
