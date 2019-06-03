@@ -13,32 +13,69 @@
      color: gold;
  }
 
- .character-container {
-     display: inline-block;
-     position: relative;
-     width: 100%;
-     height: 200px;
-     margin: 20px auto;
-     color: white;
-     text-align: center;
-     align-items: center;
-     font-size: 20px;
- }
-
  h2 {
      float: center;
      padding: 20px;
  }
 
- .character {
-     height: 300px;
+ img {
      width: 100px;
+     height: 300px;
      padding-left: 20px;
  }
+ .AhrimIMG {
+     position: absolute;
+     float: left;
+     margin: 10px, 10px, 10px, 10px;
+     width: 100px;
+     Height: 300px;
+     left: 20%;
+ }
+ .DharokIMG {
+    position: absolute;
+    float: left;
+    margin: 10px, 10px, 10px, 10px;
+    width: 100px;
+    Height: 300px;
+    left: 30%;
+}
+.GuthanIMG {
+    position: absolute;
+    float: left;
+    margin: 10px, 10px, 10px, 10px;
+    width: 100px;
+    Height: 300px;
+    left: 40%;
+}
+.KarilIMG {
+    position: absolute;
+    float: left;
+    margin: 10px, 10px, 10px, 10px;
+    width: 100px;
+    Height: 300px;
+    left: 50%;
+}
+.ToragIMG {
+    position: absolute;
+    float: left;
+    margin: 10px, 10px, 10px, 10px;
+    width: 100px;
+    Height: 300px;
+    left: 60%;
+}
+.VeracIMG {
+    position: absolute;
+    float: left;
+    margin: 10px, 10px, 10px, 10px;
+    width: 100px;
+    Height: 300px;
+    left: 70%;
+}
 
  .arena {
      display: block;
      position: absolute;
+     top: 70%;
      width: 100%;
      height: 70%;
      margin: 0 auto;
@@ -60,4 +97,3 @@
      font-size: 30px;
      font-weight: bold;
  }
- 
