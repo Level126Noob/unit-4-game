@@ -1,13 +1,13 @@
 $(document).ready(function () {
   //defining local variables
   selected = false;
-  //defining the character objects
+  
 GameEngine();
 
   function GameEngine () {
-    YourCharacter(),
-    DefenderSelected();
+    YourCharacter()
   };
+//defining the character objects and creating a reset player fuction to reset the player variables back to 
   var Ahrim = {
     Name: "Ahrim",
     defense: 12,
@@ -149,10 +149,4 @@ GameEngine();
     $(".KarilIMG").remove(".KarilIMG")
   });
 };
-
-  function DefenderSelected () {
-    $(".karil").click(function KarilSelected () {
-      document.getElementById("defender").innerHTML = '<div class = "karil"><h3>Name: ' + Karil.Name + '</h3>' + Karil.image + '<h4>Health: ' + Karil.hp + '</h4>' + "<h1>Defender</h1></div>";
-    });
-  };
 });
