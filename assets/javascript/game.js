@@ -14,21 +14,21 @@ $(document).ready(function () {
     return {
       'Ahrim': {
         Name: "Ahrim",
-        defense: 12,
+        defense: 11,
         hp: 99,
         image: "<img src='assets/images/Ahrim.png' />",
         alert: "You Selected Ahrim! Good choice! Now pick an enemey from the 'Enemies Avaliable To Attack' section to start a battle!"
       },
       'Dharok': {
         Name: "Dharok",
-        defense: 14,
+        defense: 10,
         hp: 99,
         image: "<img src = 'assets/images/Dharok.png' />",
         alert: "You Selected Dharok! Good choice! Now pick an enemey from the 'Enemies Avaliable To Attack' section to start a battle!"
       },
       'Guthan': {
         Name: "Guthan",
-        defense: 8,
+        defense: 5,
         hp: 99,
         image: "<img src='assets/images/Guthan.png' />",
         alert: "You Selected Guthan! Good choice! Now pick an enemey from the 'Enemies Avaliable To Attack' section to start a battle!"
@@ -42,14 +42,14 @@ $(document).ready(function () {
       },
       'Torag': {
         Name: "Torag",
-        defense: 7,
+        defense: 6,
         hp: 99,
         image: "<img src='assets/images/Torag.png' />",
         alert: "You Selected Torag! Good choice! Now pick an enemey from the 'Enemies Avaliable To Attack' section to start a battle!"
       },
       'Verac': {
         Name: "Verac",
-        defense: 12,
+        defense: 7,
         hp: 99,
         image: "<img src='assets/images/Verac.png' /  alt='verac'>",
         alert: "You Selected Verac! Good choice! Now pick an enemey from the 'Enemies Avaliable To Attack' section to start a battle!"
@@ -65,11 +65,12 @@ $(document).ready(function () {
     }
   };
 
-  
+  //onclick function defining the variable of click and clicked getting the data from the parent objects and appending them to the appropriate divs
   $('.character').click(function (e) {
     if (gameEngine.selectedCharacter == null) {
       var clicked = this.getAttribute('data-name');
       var characterswrapper = $(this).parent();
+      alert('You Selected: ' + clicked + ' good choice! Now click on an enemey in the "enemies to attack" section to engage in battle!')
       console.log(clicked);
       gameEngine.selectedCharacter = characters[clicked];
       $('#Yourcharacter').append('<h4 class = "yourcharhp">Health: ' + gameEngine.selectedCharacter.hp + '</h4>' + gameEngine.selectedCharacter.image + '<h3>Name: ' + gameEngine.selectedCharacter.Name + '</h3>');
@@ -79,23 +80,29 @@ $(document).ready(function () {
     } else if (gameEngine.selectedDefender == null) {
       var click = this.getAttribute('data-name');
       var characterswrapper = $(this).parent();
+      alert('You Selected: ' + click + ' now click the ATTACK button to start fighting!');
+      console.log(click);
       gameEngine.selectedDefender = characters[click];
       $('#defender').append('<h4 class = "defenderhp">Health: ' + gameEngine.selectedDefender.hp + '</h4>' + gameEngine.selectedDefender.image + '<h3>Name: ' + gameEngine.selectedDefender.Name + '</h3>');
       characterswrapper.hide();
       $('#attackbtn').css('visibility', 'visible');
+    } else if (click >= 5) {
+      alert('You Win!! Great Job!! Click the "Reset Game" button to play again!');
+      $('#button').css('visibility', 'visible');
     }
   });
 
  //defining the attack function does
   function attackdefender() {
-    var attack = Math.floor(Math.random() * 50 + 1)
-    console.log(attack);
+    var attack = Math.floor(Math.random() * 99 + 1)
+    console.log('You Hit: ' + attack);
     gameEngine.selectedDefender.hp = gameEngine.selectedDefender.hp - attack;
     $('.defenderhp').text(gameEngine.selectedDefender.hp)
-    console.log(gameEngine.selectedDefender.hp);
+    console.log('Defenders Health: ' + gameEngine.selectedDefender.hp);
     gameEngine.selectedCharacter.hp = gameEngine.selectedCharacter.hp - gameEngine.selectedDefender.defense;
     $('.yourcharhp').text(gameEngine.selectedCharacter.hp)
-    console.log(gameEngine.selectedCharacter.hp);
+    console.log ('Opponent Hit: ' + gameEngine.selectedDefender.defense);
+    console.log('Your Health: ' + gameEngine.selectedCharacter.hp);
     if (gameEngine.selectedDefender.hp <= 0) {
       removeDefender();
     }
@@ -104,16 +111,14 @@ $(document).ready(function () {
     };
   };
 
-  
-
+  //onclick attack button performing attack function
   $('#attackbtn').click(function () {
     attackdefender();
   });
-
   //function for removing characters if hp = 0
   function removeDefender() {
     if (gameEngine.selectedDefender.hp <= 0) {
-      $('#defender').html('<h1>Defender!</h1>');
+      $('#defender').html('<h1>Defender</h1>');
       gameEngine.selectedDefender = null;
       alert("You beat that opponent! Pick another one to fight!")
     };
