@@ -86,13 +86,11 @@ $(document).ready(function () {
       $('#defender').append('<h4 class = "defenderhp">Health: ' + gameEngine.selectedDefender.hp + '</h4>' + gameEngine.selectedDefender.image + '<h3>Name: ' + gameEngine.selectedDefender.Name + '</h3>');
       characterswrapper.hide();
       $('#attackbtn').css('visibility', 'visible');
-    } else if (click >= 5) {
-      alert('You Win!! Great Job!! Click the "Reset Game" button to play again!');
-      $('#button').css('visibility', 'visible');
     }
   });
 
- //defining the attack function does
+ var RemoveDef = 0;
+  //defining the attack function does
   function attackdefender() {
     var attack = Math.floor(Math.random() * 99 + 1)
     console.log('You Hit: ' + attack);
@@ -101,16 +99,30 @@ $(document).ready(function () {
     console.log('Defenders Health: ' + gameEngine.selectedDefender.hp);
     gameEngine.selectedCharacter.hp = gameEngine.selectedCharacter.hp - gameEngine.selectedDefender.defense;
     $('.yourcharhp').text(gameEngine.selectedCharacter.hp)
-    console.log ('Opponent Hit: ' + gameEngine.selectedDefender.defense);
+    console.log('Opponent Hit: ' + gameEngine.selectedDefender.defense);
     console.log('Your Health: ' + gameEngine.selectedCharacter.hp);
-    if (gameEngine.selectedDefender.hp <= 0) {
-      removeDefender();
-    }
     if (gameEngine.selectedCharacter.hp <= 0) {
       youlost();
-    };
+    }
+    if (gameEngine.selectedDefender.hp <= 0) {
+      removeDefender();
+      RemoveDef ++;
+       console.log('Defenders Removed: ' + RemoveDef);
+    } 
+    if (RemoveDef == 5) {
+      YouWIN();
   };
-
+};
+  
+  //creating a win function
+  function YouWIN() {
+    alert('You Won!! Congratulations! Click the "Reset Button" to play again!');
+      $('#button').css('visibility', 'visible');
+      $("button").click(function () {
+        location.reload(true);
+      });
+  };
+   
   //onclick attack button performing attack function
   $('#attackbtn').click(function () {
     attackdefender();
@@ -120,15 +132,15 @@ $(document).ready(function () {
     if (gameEngine.selectedDefender.hp <= 0) {
       $('#defender').html('<h1>Defender</h1>');
       gameEngine.selectedDefender = null;
-      alert("You beat that opponent! Pick another one to fight!")
-    };
-  };
+      alert("You beat that opponent! Pick another one to fight!");
+    }
+};
 
   function youlost() {
-      alert("Oh NO! You lost! Click the Reset Button to Try again!");
-      $('#button').css('visibility', 'visible')
-      $("button").click(function(){
-        location.reload(true);
+    alert("Oh NO! You lost! Click the Reset Button to Try again!");
+    $('#button').css('visibility', 'visible')
+    $("button").click(function () {
+      location.reload(true);
     });
   };
 });
