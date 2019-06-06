@@ -14,36 +14,37 @@
 <body>
     <header>Barrows Arena Combat!</header>
 
-        <h2>Choose Your Character!</h2>
+    <h2>Choose Your Character!</h2>
+    <div class="characters">
         <div class="AhrimIMG">
-            <img class="character" id="AhrimIMG" src="assets/images/Ahrim.png">
+            <img class="character" data-name="Ahrim" src="assets/images/Ahrim.png">
         </div>
         <div class="DharokIMG">
-            <img class="character" id="DharokIMG" src="assets/images/Dharok.png">
+            <img class="character" data-name="Dharok" src="assets/images/Dharok.png">
         </div>
         <div class="GuthanIMG">
-            <img class="character" id="GuthanIMG" src="assets/images/Guthan.png">
+            <img class="character" data-name="Guthan" src="assets/images/Guthan.png">
         </div>
         <div class="KarilIMG">
-            <img class="character" id="KarilIMG" src="assets/images/Karil.png">
+            <img class="character" data-name="Karil" src="assets/images/Karil.png">
         </div>
         <div class="ToragIMG">
-            <img class="character" id="ToragIMG" src="assets/images/Torag.png">
+            <img class="character" data-name="Torag" src="assets/images/Torag.png">
         </div>
         <div class="VeracIMG">
-            <img class="character" id="VeracIMG" src="assets/images/Verac.png">
+            <img class="character" data-name="Verac" src="assets/images/Verac.png">
         </div>
+    </div>
 
     <div class="arena">
-        <div id="character">
+        <div id="Yourcharacter">
             <h1>Your Character</h1>
         </div>
         <div id="enemies">
             <h1>Enemies Avaliable To Attack</h1>
         </div>
         <div id="fight section">
-            <h1>Fight Section</h1><button type="button"
-                class="btn btn-danger my-auto justify-content-center">Attack</button>
+            <button type="button" class="btn btn-danger" id="attackbtn">Attack</button><h1>Fight Section</h1>
         </div>
         <div id="defender">
             <h1>Defender</h1>
