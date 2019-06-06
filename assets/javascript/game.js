@@ -1,11 +1,10 @@
 var characters
 var gameEngine
-
 $(document).ready(function () {
   //defining local variables
-  GameEngine();
+  GameStart();
 
-  function GameEngine() {
+  function GameStart() {
     characters = resetCharacters();
     gameEngine = resetGameEngine();
   };
@@ -58,10 +57,15 @@ $(document).ready(function () {
     }
   };
 
+  function resetGameEngine() {
+    // resets game engine
+    return {
+      selectedCharacter: null,
+      selectedDefender: null,
+    }
+  };
+
   
-
-
-
   $('.character').click(function (e) {
     if (gameEngine.selectedCharacter == null) {
       var clicked = this.getAttribute('data-name');
@@ -82,11 +86,9 @@ $(document).ready(function () {
     }
   });
 
-  //defining the attack
-
-
+ //defining the attack function does
   function attackdefender() {
-    var attack = Math.floor(Math.random() * 31 + 1)
+    var attack = Math.floor(Math.random() * 50 + 1)
     console.log(attack);
     gameEngine.selectedDefender.hp = gameEngine.selectedDefender.hp - attack;
     $('.defenderhp').text(gameEngine.selectedDefender.hp)
@@ -94,50 +96,34 @@ $(document).ready(function () {
     gameEngine.selectedCharacter.hp = gameEngine.selectedCharacter.hp - gameEngine.selectedDefender.defense;
     $('.yourcharhp').text(gameEngine.selectedCharacter.hp)
     console.log(gameEngine.selectedCharacter.hp);
-    if (gameEngine.selectedCharacter.hp <=0) {
+    if (gameEngine.selectedDefender.hp <= 0) {
+      removeDefender();
+    }
+    if (gameEngine.selectedCharacter.hp <= 0) {
       youlost();
     };
   };
-    
-  function resetGameEngine() {
-    // resets game state to originals.
-    return {
-      selectedCharacter: null,
-      selectedDefender: null,
-    }
-  }
+
+  
+
+  $('#attackbtn').click(function () {
+    attackdefender();
+  });
+
+  //function for removing characters if hp = 0
   function removeDefender() {
     if (gameEngine.selectedDefender.hp <= 0) {
-      $('#defender').html('<h1>Choose Another Opponent!</h1>');
+      $('#defender').html('<h1>Defender!</h1>');
       gameEngine.selectedDefender = null;
       alert("You beat that opponent! Pick another one to fight!")
     };
   };
 
-  function emptyDivs() {
-    //resets game
-    $('#Yourcharacter').empty()
-    $('#enemies').empty()
-    $('#defender').empty()
-    $('.characters').show();
-  }
-
   function youlost() {
-    if (gameEngine.selectedCharacter.hp <= 0) {
-      alert("Oh NO! You lost! Try again!");
-      console.log('resetting game');
-      resetCharacters();
-      resetGameEngine();
-      emptyDivs();
-    };
-    GameEngine();
+      alert("Oh NO! You lost! Click the Reset Button to Try again!");
+      $('#button').css('visibility', 'visible')
+      $("button").click(function(){
+        location.reload(true);
+    });
   };
-
-  $('#attackbtn').click(function () {
-    attackdefender();
-    removeDefender();
-  });
-  //function for removing characters if hp = 0
-
-
 });
