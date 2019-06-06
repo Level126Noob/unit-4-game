@@ -101,6 +101,8 @@ $(document).ready(function () {
     $('.yourcharhp').text(gameEngine.selectedCharacter.hp)
     console.log('Opponent Hit: ' + gameEngine.selectedDefender.defense);
     console.log('Your Health: ' + gameEngine.selectedCharacter.hp);
+    $('#attackbtn').prepend('You Hit: ' + attack);
+    $('#attackbtn').append('Defender Hit: ' + gameEngine.selectedDefender.defense);
     if (gameEngine.selectedCharacter.hp <= 0) {
       youlost();
     }
@@ -133,6 +135,8 @@ $(document).ready(function () {
       $('#defender').html('<h1>Defender</h1>');
       gameEngine.selectedDefender = null;
       alert("You beat that opponent! Pick another one to fight!");
+      $('#attackbtn').empty();
+      $('#attackbtn').append('@Attack!@');
     }
 };
 
