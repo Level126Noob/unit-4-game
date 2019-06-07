@@ -92,7 +92,7 @@ $(document).ready(function () {
  var RemoveDef = 0;
   //defining the attack function does
   function attackdefender() {
-    var attack = Math.floor(Math.random() * 99 + 1)
+    var attack = Math.floor(Math.random() * 70 + 1)
     console.log('You Hit: ' + attack);
     gameEngine.selectedDefender.hp = gameEngine.selectedDefender.hp - attack;
     $('.defenderhp').text(gameEngine.selectedDefender.hp)
